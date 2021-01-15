@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+const double PI = 3.141592654, g = -10;
+
+int main()
+
+
+
+{
+
+    double launch_angle, Vo, Vx, Vy, time, x, y, y_max;
+
+
+    do
+    {
+
+        cout << "Enter intial Velocity: \n";
+        cin >> Vo;
+
+    } while ((Vo < 0) || (Vo > 100));
+
+    do
+    {
+        cout << "Enter Launch Angle: \n";
+        cin >> launch_angle;
+    } while ((launch_angle < 1) || (launch_angle > 89));
+
+    Vx = Vo * cos(launch_angle * PI / 180);
+    Vy = Vo * sin(launch_angle * PI / 180);
+
+    cout << "Vx = " << Vx << endl;
+    cout << "Vy = " << Vy << endl;
+
+    do
+    {
+        cout << "Enter the time: \n";
+        cin >> time;
+    } while (time < 0);
+
+    y_max = (Vo * sin(launch_angle * PI / 180) * Vo * sin(launch_angle * PI / 180)) / 2 * g;
+    cout << "Y max = " << y_max << endl;
+
+    x = Vo * cos(launch_angle * PI / 180) * time;
+    y = (1 / 2) * g * time * time + Vo * sin(launch_angle * PI / 180) * time;
+
+    cout << "x = " << x << endl;
+    cout << "y = " << y << endl;
+
+
+
+    system("pause");
+    return 0;
+}
+
